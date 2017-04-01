@@ -6,12 +6,14 @@
 
 " Set this option to change the Clang options for warnings for CPP.
 if !exists('g:ale_cpp_clang_check_options')
-    let g:ale_cpp_clang_check_options = "-extra-arg='-std=c++14 -Wall'"
+    let g:ale_cpp_clang_check_options = "-p build"
 endif
 
 function! ale_linters#cpp#clang_check#GetCommand(buffer) abort
+    echo 'clang-check -analyze ' .
+    \ g:ale_cpp_clang_check_options . ' '
     return 'clang-check -analyze ' .
-    \   ' ' . g:ale_cpp_clang_check_options . ' -'
+    \ g:ale_cpp_clang_check_options . ' '
 endfunction
 
 call ale#linter#Define('cpp', {
