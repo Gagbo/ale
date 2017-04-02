@@ -10,7 +10,7 @@ if !exists('g:ale_cpp_clang_check_options')
 endif
 
 function! ale_linters#cpp#clang_check#GetCommand(buffer) abort
-    return 'clang-check -analyze %t ' .
+    return 'clang-check -analyze %s ' .
     \ g:ale_cpp_clang_check_options
 endfunction
 
