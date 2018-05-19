@@ -11,7 +11,7 @@ function! ale_linters#cpp#cquery#GetCommand(buffer) abort
     let l:executable = ale_linters#cpp#cquery#GetExecutable(a:buffer)
 
       return ale#Escape(l:executable)
-    \ . ' --log-file=/tmp/cq.log --init=''{"cacheDirectory": "/tmp/cquery", "emitQueryDbBlocked": true}'''
+    \ . " --log-file=/tmp/cq.log --init='{\"cacheDirectory\": \"/tmp/cquery\"}'"
 endfunction
 
 function! ale_linters#cpp#cquery#GetProjectRoot(buffer) abort
